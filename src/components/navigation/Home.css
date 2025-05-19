@@ -1,0 +1,114 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .main-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', serif;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .main-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 0, 0.20) 0px,
+      rgba(255, 255, 0, 0.20) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+    animation: move-pattern 20s linear infinite;
+    z-index: 0;
+  }
+  
+  @keyframes move-pattern {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(50px, 50px);
+    }
+  }
+  
+  .animated-text {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    animation: fade-slide-in 1.5s ease forwards;
+  }
+  
+  .animated-text:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  .animated-text:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes fade-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 2rem;
+    z-index: 1;
+  }
+  
+  .yellow-button {
+    color: yellow;
+    background-color: black;
+    border: 1px solid yellow;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .yellow-button:hover {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .social-icons {
+    margin-top: 2rem;
+    z-index: 1;
+  }
+  
+  .social-icons a {
+    color: yellow;
+    font-size: 2rem;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
